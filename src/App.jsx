@@ -5,7 +5,6 @@ import Powerstatus from "./components/powerstatus/Powerstatus";
 import Biography from "./components/biography/Biography";
 import Appearance from "./components/appearance/Appearance";
 import Connections from "./components/connections/Connections";
-
 function App() {
   return (
     <Routes>

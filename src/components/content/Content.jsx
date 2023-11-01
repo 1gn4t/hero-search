@@ -5,10 +5,10 @@ import TabsHead from "../tabs-head/TabsHead";
 import { ContentContainer, ContentTitle } from "./Content.styled";
 
 export default function Content() {
-  const { currHero } = useSearchContext();
+  const { state } = useSearchContext();
   return (
     <ContentContainer>
-      <ContentTitle>{currHero.name}</ContentTitle>
+      <ContentTitle>{state.currHero.name}</ContentTitle>
       <TabsHead />
       <TabsBody />
     </ContentContainer>

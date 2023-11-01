@@ -1,3 +1,4 @@
+import { createAction } from "../../utils/reducer";
 import { useSearchContext } from "../../utils/useSearchContext";
 import SearchList from "../search-list/SearchList";
 import {
@@ -9,18 +10,17 @@ import {
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default function Search() {
-  const { searchStr, setSearchStr, herosMap, selectHeroAndClearInput } =
-    useSearchContext();
+  const { state, dispatch } = useSearchContext();
 
   const handlerChange = (e) => {
     const value = e.target.value;
-    setSearchStr(value);
+    dispatch(createAction("SET_SEARCH_STRING", value));
   };
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    if (!searchStr) return;
-    selectHeroAndClearInput(herosMap[0]);
+    if (!state.searchStr) return;
+    dispatch(createAction("SET_CURRENT_HERO", state.herosMap[0]));
   };
 
   return (
@@ -30,7 +30,7 @@ export default function Search() {
         type="text"
         placeholder="Search your superhero here ..."
         name="search"
-        value={searchStr}
+        value={state.searchStr}
       />
       <SearchButton type="submit">
         <Icon icon={faSearch} />

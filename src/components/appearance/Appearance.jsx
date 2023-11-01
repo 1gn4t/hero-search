@@ -3,8 +3,8 @@ import { AppearanceList, Item, Tittle, Text, Icon } from "./Appearance.styled";
 import { useSearchContext } from "../../utils/useSearchContext";
 
 export default function Appearance() {
-  const { currHero } = useSearchContext();
-  const appearance = Object.entries(currHero.appearance);
+  const { state } = useSearchContext();
+  const appearance = Object.entries(state.currHero.appearance);
 
   return (
     <AppearanceList>

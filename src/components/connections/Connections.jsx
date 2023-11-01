@@ -2,8 +2,8 @@ import { useSearchContext } from "../../utils/useSearchContext";
 import { ConnectionsList, Item, Tittle, Text } from "./Connections.styled";
 
 export default function Connections() {
-  const { currHero } = useSearchContext();
-  const connections = Object.entries(currHero.connections);
+  const { state } = useSearchContext();
+  const connections = Object.entries(state.currHero.connections);
 
   return (
     <ConnectionsList>

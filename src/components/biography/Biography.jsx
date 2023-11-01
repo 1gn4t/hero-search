@@ -2,8 +2,8 @@ import { useSearchContext } from "../../utils/useSearchContext";
 import { BiographyList, Item, Tittle, Text } from "./Biography.styled";
 
 export default function Biography() {
-  const { currHero } = useSearchContext();
-  const biography = Object.entries(currHero.biography);
+  const { state } = useSearchContext();
+  const biography = Object.entries(state.currHero.biography);
 
   return (
     <BiographyList>
