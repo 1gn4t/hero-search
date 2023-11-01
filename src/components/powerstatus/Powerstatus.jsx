@@ -9,8 +9,8 @@ import {
 import { useSearchContext } from "../../utils/useSearchContext";
 
 export default function Powerstatus() {
-  const { currHero } = useSearchContext();
-  const powerstats = Object.entries(currHero.powerstats);
+  const { state } = useSearchContext();
+  const powerstats = Object.entries(state.currHero.powerstats);
 
   return (
     <PowerstatusList>
