@@ -1,11 +1,13 @@
 import Header from "../header/Header";
-import Content from "../content/Content";
+import Body from "../body/Body";
+
+import { Wrapper } from "./Container.styled";
 
 export default function Container() {
   return (
-    <div>
+    <Wrapper>
       <Header />
-      <Content />
-    </div>
+      <Body />
+    </Wrapper>
   );
 }
