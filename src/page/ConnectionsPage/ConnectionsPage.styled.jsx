@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ConnectionsList = styled.ul``;
+export const List = styled.ul``;
 
 export const Item = styled.li``;
 

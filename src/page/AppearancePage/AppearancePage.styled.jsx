@@ -6,7 +6,7 @@ export const Icon = styled(FontAwesomeIcon)`
   margin-right: 1.4rem;
 `;
 
-export const AppearanceList = styled.ul``;
+export const List = styled.ul``;
 
 export const Item = styled.li`
   margin: 3.2rem 0;

@@ -1,14 +1,19 @@
-import { useSearchContext } from "../../utils/useSearchContext";
+import { useSelector } from "react-redux";
 import SearchItem from "../search-item/SearchItem";
 import { SearchListContainer } from "./SearchList.styled";
+import {
+  selectFractionHerosMap,
+  selectSearch,
+} from "../../store/search/seacrh.selectors";
 
 export default function SearchList() {
-  const { state } = useSearchContext();
+  const herosMap = useSelector(selectSearch);
+  const herosList = useSelector(selectFractionHerosMap);
 
   return (
     <SearchListContainer>
-      {state.herosMap &&
-        state.herosMap.slice(0, 5).map((hero) => {
+      {herosMap &&
+        herosList.map((hero) => {
           const { name, image, id } = hero;
           return <SearchItem key={id} id={id} name={name} imgUrl={image.url} />;
         })}

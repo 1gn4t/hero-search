@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
-export const PowerstatusList = styled.ul``;
+export const List = styled.ul``;
 
-export const PowerstatusItem = styled.li`
+export const Item = styled.li`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,7 +19,7 @@ export const PowerstatusItem = styled.li`
 export const Icon = styled(FontAwesomeIcon)`
   color: var(--red-color);
 `;
-export const PowerstatusTitle = styled.span`
+export const Title = styled.span`
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 7px;
@@ -28,7 +28,7 @@ export const PowerstatusTitle = styled.span`
   opacity: 0.6;
   font-size: 1.7rem;
 `;
-export const PowerstatusText = styled.span`
+export const Text = styled.span`
   color: var(--yellow-color);
   font-weight: 700;
 `;
