@@ -3,7 +3,7 @@ import { TabsHeadContainer, CustomLink } from "./TabsHead.styled";
 export default function TabsHead() {
   return (
     <TabsHeadContainer>
-      <CustomLink to="powerstats">
+      <CustomLink to="/">
         <span>powerstats</span>
       </CustomLink>
       <CustomLink to="biography">

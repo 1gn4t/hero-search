@@ -1,15 +1,14 @@
-import { useSelector } from "react-redux";
+import { useSearchContext } from "../../utils/useSearchContext";
 import TabsBody from "../tabs-body/TabsBody";
 import TabsHead from "../tabs-head/TabsHead";
 
 import { ContentContainer, ContentTitle } from "./Content.styled";
-import { selectCurrHero } from "../../store/search/seacrh.selectors";
 
 export default function Content() {
-  const { name } = useSelector(selectCurrHero);
+  const { state } = useSearchContext();
   return (
     <ContentContainer>
-      <ContentTitle>{name}</ContentTitle>
+      <ContentTitle>{state.currHero.name}</ContentTitle>
       <TabsHead />
       <TabsBody />
     </ContentContainer>
