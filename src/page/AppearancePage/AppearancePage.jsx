@@ -1,13 +1,13 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { AppearanceList, Item, Tittle, Text, Icon } from "./Appearance.styled";
-import { useSearchContext } from "../../utils/useSearchContext";
+import { List, Item, Tittle, Text, Icon } from "./AppearancePage.styled";
+import { useSelector } from "react-redux";
+import { selectAppearance } from "../../store/search/seacrh.selectors";
 
-export default function Appearance() {
-  const { state } = useSearchContext();
-  const appearance = Object.entries(state.currHero.appearance);
+export default function AppearancePage() {
+  const appearance = useSelector(selectAppearance);
 
   return (
-    <AppearanceList>
+    <List>
       {appearance.map((item, id) => {
         const [title, value] = item;
         return (
@@ -20,6 +20,6 @@ export default function Appearance() {
           </Item>
         );
       })}
-    </AppearanceList>
+    </List>
   );
 }

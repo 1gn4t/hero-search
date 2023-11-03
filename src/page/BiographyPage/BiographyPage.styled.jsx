@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BiographyList = styled.ul``;
+export const List = styled.ul``;
 
 export const Item = styled.li`
   margin: 2.4rem 0;
