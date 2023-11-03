@@ -11,12 +11,12 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  storageBucket: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  apiKey: "AIzaSyA0X5-77ZIzJW3UICz9P51IIMVBD6WsGOA",
+  authDomain: "super-hero-4f3c5.firebaseapp.com",
+  projectId: "super-hero-4f3c5",
+  storageBucket: "super-hero-4f3c5.appspot.com",
+  messagingSenderId: "915189083120",
+  appId: "1:915189083120:web:c30e58b2954b441c188b35",
 };
 
 initializeApp(firebaseConfig);
