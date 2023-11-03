@@ -1,15 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { createAction } from "../../utils/reducer";
+import { useSearchContext } from "../../utils/useSearchContext";
 import { SearchItemContainer } from "./SearchItem.styled";
-import { selectSearch } from "../../store/search/seacrh.selectors";
-import { setCurrentHero } from "../../store/search/search.actions";
 
 export default function SearchItem({ name, imgUrl, id }) {
-  const { herosMap } = useSelector(selectSearch);
-  const dispatch = useDispatch();
+  const { state, dispatch } = useSearchContext();
 
   const handlerClick = () => {
-    const targetHero = herosMap.find((hero) => hero.id === id);
-    dispatch(setCurrentHero(targetHero));
+    const targetHero = state.herosMap.find((hero) => hero.id === id);
+    dispatch(createAction("SET_CURRENT_HERO", targetHero));
   };
 
   return (
