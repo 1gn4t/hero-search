@@ -23,8 +23,9 @@ export default function SingInForm() {
     navigate("/search");
   };
 
-  const handlerGoogle = () => {
-    singInGoogle();
+  const handlerGoogle = async () => {
+    await singInGoogle();
+    navigate("/");
   };
 
   return (
