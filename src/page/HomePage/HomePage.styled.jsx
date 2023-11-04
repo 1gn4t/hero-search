@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin: 4rem auto 2rem;
   min-height: 600px;
   overflow-y: scroll;
-  background-image: url(/src/assets/batman.svg);
+  background-image: url(batman.svg);
   background-size: contain;
   background-repeat: no-repeat;
 

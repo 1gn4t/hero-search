@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin: 4rem auto 2rem;
   min-height: 600px;
-  background-image: url(/src/assets/sad-batman.gif);
+  background-image: url(sad-batman.gif);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
