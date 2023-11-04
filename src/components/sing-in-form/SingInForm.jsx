@@ -20,7 +20,7 @@ export default function SingInForm() {
   const submitForm = ({ email, password }) => {
     singInUser(email, password);
     reset();
-    navigate("/search");
+    navigate("/");
   };
 
   const handlerGoogle = async () => {

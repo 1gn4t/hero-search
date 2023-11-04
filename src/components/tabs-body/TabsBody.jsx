@@ -1,15 +1,27 @@
 import { TabsBodyContainer } from "./TabsBody.styled";
-import Powerstatus from "../../page/PowerstatsPage/PowerstatsPage";
-import Biography from "../../page/BiographyPage/BiographyPage";
-import Appearance from "../../page/AppearancePage/AppearancePage";
-import Connections from "../../page/ConnectionsPage/ConnectionsPage";
-
-import { Outlet, Route, Routes } from "react-router-dom";
+import PowerstatsPage from "../../page/PowerstatsPage/PowerstatsPage";
+import BiographyPage from "../../page/BiographyPage/BiographyPage";
+import AppearancePage from "../../page/AppearancePage/AppearancePage";
+import ConnectionsPage from "../../page/ConnectionsPage/ConnectionsPage";
+import { useSelector } from "react-redux";
+import { selectTabs } from "../../store/tabs/tabs.selectors";
 
 export default function TabsBody() {
-  return (
-    <TabsBodyContainer>
-      <Outlet />
-    </TabsBodyContainer>
-  );
+  const { powerstats, biography, appearance, connections } =
+    useSelector(selectTabs);
+
+  const displayCurrentTab = () => {
+    switch (true) {
+      case powerstats:
+        return <PowerstatsPage />;
+      case biography:
+        return <BiographyPage />;
+      case appearance:
+        return <AppearancePage />;
+      case connections:
+        return <ConnectionsPage />;
+    }
+  };
+
+  return <TabsBodyContainer>{displayCurrentTab()}</TabsBodyContainer>;
 }

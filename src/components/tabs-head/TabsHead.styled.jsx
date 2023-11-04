@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
 
 export const TabsHeadContainer = styled.div`
   display: -webkit-box;
@@ -24,7 +23,7 @@ export const TabsHeadContainer = styled.div`
   }
 `;
 
-export const CustomLink = styled(NavLink)`
+export const CustomLink = styled.button`
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;

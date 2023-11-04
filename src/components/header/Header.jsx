@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import Search from "../search/Search";
 import {
   HeaderContainer,
@@ -14,7 +14,6 @@ import { signOutUser } from "../../API/firebase";
 export default function Header() {
   const user = useSelector(selectUser);
   const { pathname } = useLocation();
-  const { categories } = useParams();
 
   const navigate = useNavigate();
   const goHome = () => navigate("/");
@@ -24,7 +23,6 @@ export default function Header() {
   };
 
   const handlerSingOut = () => {
-    console.log(1);
     signOutUser();
     goHome();
   };
@@ -34,7 +32,7 @@ export default function Header() {
       <HeaderLogo onClick={goHome}>
         Super<span>Hero.</span>
       </HeaderLogo>
-      {pathname === `/search/${categories}` && <Search />}
+      {pathname === `/search` && <Search />}
       <BtnContainer>
         {user ? (
           <SingOutButton onClick={handlerSingOut}>Sing Out</SingOutButton>

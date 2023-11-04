@@ -19,7 +19,7 @@ export default function SingUpForm() {
   const submitForm = ({ email, password }) => {
     createUser(email, password);
     reset();
-    navigate("/search");
+    navigate("/");
   };
 
   return (
