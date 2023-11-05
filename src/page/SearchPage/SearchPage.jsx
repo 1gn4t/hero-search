@@ -15,7 +15,7 @@ export default function SearchPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (searchStr) dispatch(setHerosMap(searchStr));
+    dispatch(setHerosMap(searchStr));
   }, [searchStr, dispatch]);
 
   return (
