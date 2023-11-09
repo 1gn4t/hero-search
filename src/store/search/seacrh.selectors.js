@@ -20,6 +20,7 @@ export const selectConnections = createSelector(selectCurrHero, (currHero) =>
   Object.entries(currHero.connections)
 );
 
-export const selectFractionHerosMap = createSelector(selectSearch, (store) =>
-  store.herosMap.slice(0, store.sizeList)
-);
+export const selectFractionHerosMap = createSelector(selectSearch, (store) => {
+  console.log(store.herosMap);
+  return store.herosMap.slice(0, store.sizeList);
+});

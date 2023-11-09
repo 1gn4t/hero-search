@@ -6,7 +6,6 @@ import {
   selectSearch,
 } from "../../store/search/seacrh.selectors";
 import { useEffect } from "react";
-import { PostService } from "../../API/PostService";
 import { setHerosMap } from "../../store/search/search.actions";
 
 export default function SearchPage() {
@@ -16,16 +15,8 @@ export default function SearchPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await PostService.getHero(searchStr);
-        if (!response) return;
-        dispatch(setHerosMap(response));
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [searchStr]);
+    dispatch(setHerosMap(searchStr));
+  }, [searchStr, dispatch]);
 
   return (
     <BodyContainer>

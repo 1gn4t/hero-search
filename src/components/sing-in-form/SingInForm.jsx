@@ -12,19 +12,22 @@ import {
   BtnContainer,
 } from "./SingInForm.styled";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { signGoogleStart, signInStart } from "../../store/user/user.actions";
 
 export default function SingInForm() {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const submitForm = ({ email, password }) => {
-    singInUser(email, password);
+    dispatch(signInStart({ email, password }));
     reset();
     navigate("/");
   };
 
-  const handlerGoogle = async () => {
-    await singInGoogle();
+  const handlerGoogle = () => {
+    dispatch(signGoogleStart());
     navigate("/");
   };
 

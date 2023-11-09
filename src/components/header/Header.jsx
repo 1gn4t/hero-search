@@ -7,13 +7,14 @@ import {
   SingOutButton,
   BtnContainer,
 } from "./Header.styled";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../store/user/user.selectors";
-import { signOutUser } from "../../API/firebase";
+import { signOutStart } from "../../store/user/user.actions";
 
 export default function Header() {
   const user = useSelector(selectUser);
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const goHome = () => navigate("/");
@@ -23,7 +24,7 @@ export default function Header() {
   };
 
   const handlerSingOut = () => {
-    signOutUser();
+    dispatch(signOutStart());
     goHome();
   };
 
