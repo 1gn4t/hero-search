@@ -39,10 +39,17 @@ export const singInUser = async (email, password) => {
 };
 
 export const singInGoogle = async () => {
-  signInWithPopup(auth, provider).then(console.log);
+  const user = await signInWithPopup(auth, provider);
+  console.log(user);
 };
 
 export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedUser = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    onAuthStateChanged(auth, (userAuth) => resolve(userAuth), reject);
+  });
+};
