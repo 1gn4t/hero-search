@@ -39,8 +39,8 @@ export const singInUser = async (email, password) => {
 };
 
 export const singInGoogle = async () => {
-  const user = await signInWithPopup(auth, provider);
-  console.log(user);
+  const response = await signInWithPopup(auth, provider);
+  return response.user;
 };
 
 export const signOutUser = async () => await signOut(auth);

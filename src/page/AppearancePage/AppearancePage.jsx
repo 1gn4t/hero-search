@@ -1,14 +1,13 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { List, Item, Tittle, Text, Icon } from "./AppearancePage.styled";
 import { useSelector } from "react-redux";
-import { selectAppearance } from "../../store/search/seacrh.selectors";
 
 export default function AppearancePage() {
-  const appearance = useSelector(selectAppearance);
+  const { appearance } = useSelector((store) => store.search.currHero);
 
   return (
     <List>
-      {appearance.map((item, id) => {
+      {Object.entries(appearance).map((item, id) => {
         const [title, value] = item;
         return (
           <Item key={id}>

@@ -1,3 +1,0 @@
-export const TABS_ACTION_TYPES = {
-  SET_CURRENT_TAB: "SET_CURRENT_TAB",
-};

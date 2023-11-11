@@ -1,20 +1,16 @@
-import { applyMiddleware, compose, createStore } from "redux";
-import { rootReducer } from "./root-reducer";
-import thunk from "redux-thunk";
-import createSagaMiddleware from "redux-saga";
-import { userSaga } from "./user/user.saga";
+import { configureStore } from "@reduxjs/toolkit";
+import tabsReducer from "./tabsSlice";
+import userReducer from "./userSlice";
+import searchSlice from "./searchSlice";
+import { herousApi } from "./herosApi";
 
-const sagaMiddleware = createSagaMiddleware();
-
-const middleware = [thunk, sagaMiddleware];
-
-const composeEnhancers =
-  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
-
-const enhancer = composeEnhancers(applyMiddleware(...middleware));
-
-export const store = createStore(rootReducer, enhancer);
-
-sagaMiddleware.run(userSaga);
+export const store = configureStore({
+  reducer: {
+    tabs: tabsReducer,
+    user: userReducer,
+    search: searchSlice,
+    [herousApi.reducerPath]: herousApi.reducer,
+  },
+  middleware: (getDefaultMiddlware) =>
+    getDefaultMiddlware().concat(herousApi.middleware),
+});

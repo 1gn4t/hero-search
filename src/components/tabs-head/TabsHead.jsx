@@ -1,12 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { TabsHeadContainer, CustomLink } from "./TabsHead.styled";
-import { selectTabs } from "../../store/tabs/tabs.selectors";
-import { setCurrentTab } from "../../store/tabs/tabs.actions";
+import { setTab } from "../../store/tabsSlice";
 
 export default function TabsHead() {
   const dispatch = useDispatch();
-  const tabs = useSelector(selectTabs);
-  const choiceTab = (value) => dispatch(setCurrentTab(value));
+  const tabs = useSelector((store) => store.tabs);
+  const choiceTab = (value) => dispatch(setTab(value));
 
   return (
     <TabsHeadContainer>
@@ -15,7 +14,9 @@ export default function TabsHead() {
           <CustomLink
             key={index}
             className={tabs[value] && "active"}
-            onClick={() => choiceTab(value)}
+            onClick={() => {
+              choiceTab(value);
+            }}
           >
             {value}
           </CustomLink>

@@ -8,11 +8,10 @@ import {
   BtnContainer,
 } from "./Header.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../../store/user/user.selectors";
-import { signOutStart } from "../../store/user/user.actions";
+import { signOut } from "../../store/userSlice";
 
 export default function Header() {
-  const user = useSelector(selectUser);
+  const user = useSelector((store) => store.user.user);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
 
@@ -24,7 +23,7 @@ export default function Header() {
   };
 
   const handlerSingOut = () => {
-    dispatch(signOutStart());
+    dispatch(signOut());
     goHome();
   };
 
@@ -36,9 +35,9 @@ export default function Header() {
       {pathname === `/search` && <Search />}
       <BtnContainer>
         {user ? (
-          <SingOutButton onClick={handlerSingOut}>Sing Out</SingOutButton>
+          <SingOutButton onClick={handlerSingOut}>Sign Out</SingOutButton>
         ) : (
-          <SingInButton onClick={handlerSingIn}>Sing In</SingInButton>
+          <SingInButton onClick={handlerSingIn}>Sign In</SingInButton>
         )}
       </BtnContainer>
     </HeaderContainer>

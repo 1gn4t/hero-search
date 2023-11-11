@@ -1,15 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SearchItemContainer } from "./SearchItem.styled";
-import { selectSearch } from "../../store/search/seacrh.selectors";
-import { setCurrentHero } from "../../store/search/search.actions";
+import { setCurrHero } from "../../store/searchSlice";
 
 export default function SearchItem({ name, imgUrl, id }) {
-  const { herosMap } = useSelector(selectSearch);
   const dispatch = useDispatch();
 
   const handlerClick = () => {
-    const targetHero = herosMap.find((hero) => hero.id === id);
-    dispatch(setCurrentHero(targetHero));
+    dispatch(setCurrHero(id));
   };
 
   return (

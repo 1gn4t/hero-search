@@ -4,11 +4,11 @@ import BiographyPage from "../../page/BiographyPage/BiographyPage";
 import AppearancePage from "../../page/AppearancePage/AppearancePage";
 import ConnectionsPage from "../../page/ConnectionsPage/ConnectionsPage";
 import { useSelector } from "react-redux";
-import { selectTabs } from "../../store/tabs/tabs.selectors";
 
 export default function TabsBody() {
-  const { powerstats, biography, appearance, connections } =
-    useSelector(selectTabs);
+  const { powerstats, biography, appearance, connections } = useSelector(
+    (store) => store.tabs
+  );
 
   const displayCurrentTab = () => {
     switch (true) {

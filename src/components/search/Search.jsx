@@ -7,15 +7,10 @@ import {
   Icon,
 } from "./Search.styled";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-
-import {
-  setCurrentHero,
-  setSearchString,
-} from "../../store/search/search.actions";
-import { selectSearch } from "../../store/search/seacrh.selectors";
+import { setCurrHero, setSearchString } from "../../store/searchSlice";
 
 export default function Search() {
-  const { herosMap, searchStr } = useSelector(selectSearch);
+  const { herosMap, searchStr } = useSelector((store) => store.search);
   const dispatch = useDispatch();
 
   const handlerChange = (e) => {
@@ -26,7 +21,7 @@ export default function Search() {
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (!searchStr) return;
-    dispatch(setCurrentHero(herosMap[0]));
+    dispatch(setCurrHero(herosMap[0].id));
   };
 
   return (
