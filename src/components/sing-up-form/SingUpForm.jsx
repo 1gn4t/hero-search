@@ -8,11 +8,10 @@ import {
   Button,
   BtnContainer,
 } from "./SingUpForm.styled";
-import { createUser } from "../../API/firebase";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { signUpStart } from "../../store/user/user.actions";
+import { signUp } from "../../store/userSlice";
 
 export default function SingUpForm() {
   const { register, handleSubmit, reset } = useForm();
@@ -20,8 +19,7 @@ export default function SingUpForm() {
   const dispatch = useDispatch();
 
   const submitForm = ({ email, password }) => {
-    console.log({ email, password });
-    dispatch(signUpStart({ email, password }));
+    dispatch(signUp({ email, password }));
     reset();
     navigate("/");
   };

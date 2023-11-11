@@ -1,22 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import Content from "../../components/content/Content";
 import { BodyContainer, ImgContainer } from "./SearchPage.styled";
-import {
-  selectCurrHero,
-  selectSearch,
-} from "../../store/search/seacrh.selectors";
-import { useEffect } from "react";
-import { setHerosMap } from "../../store/search/search.actions";
+import Content from "../../components/content/Content";
+
+import { useSelector } from "react-redux";
+import { useGetHerosQuery } from "../../store/herosApi";
 
 export default function SearchPage() {
-  const { searchStr } = useSelector(selectSearch);
-  const { image, name } = useSelector(selectCurrHero);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setHerosMap(searchStr));
-  }, [searchStr, dispatch]);
+  const { searchStr } = useSelector((store) => store.search);
+  const { image, name } = useSelector((store) => store.search.currHero);
+  useGetHerosQuery(searchStr);
 
   return (
     <BodyContainer>

@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-import { singInGoogle, singInUser } from "../../API/firebase";
 import {
   Container,
   FormContainer,
@@ -13,7 +12,7 @@ import {
 } from "./SingInForm.styled";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { signGoogleStart, signInStart } from "../../store/user/user.actions";
+import { signGoogle, signIn } from "../../store/userSlice";
 
 export default function SingInForm() {
   const { register, handleSubmit, reset } = useForm();
@@ -21,13 +20,13 @@ export default function SingInForm() {
   const dispatch = useDispatch();
 
   const submitForm = ({ email, password }) => {
-    dispatch(signInStart({ email, password }));
+    dispatch(signIn({ email, password }));
     reset();
     navigate("/");
   };
 
   const handlerGoogle = () => {
-    dispatch(signGoogleStart());
+    dispatch(signGoogle());
     navigate("/");
   };
 

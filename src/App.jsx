@@ -8,10 +8,9 @@ import HomePage from "./page/HomePage/HomePage";
 import AuthPage from "./page/AuthPage/AuthPage";
 import SearchPage from "./page/SearchPage/SearchPage";
 import { useSelector } from "react-redux";
-import { selectUser } from "./store/user/user.selectors";
 
 function App() {
-  const user = useSelector(selectUser);
+  const user = useSelector((store) => store.user.user);
   return (
     <Routes>
       <Route path="/" element={<Container />}>

@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
 import { Container, TextContainer, Text, MainLink } from "./HomePage.styled";
-import { selectUser } from "../../store/user/user.selectors";
 
 export default function HomePage() {
-  const user = useSelector(selectUser);
+  const user = useSelector((store) => store.user.user);
 
   return (
     <Container>
